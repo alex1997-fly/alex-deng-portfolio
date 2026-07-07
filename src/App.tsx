@@ -1,7 +1,7 @@
 import './App.css'
 import { useEffect, useRef, useState } from 'react'
 import type { CSSProperties } from 'react'
-import { workImages } from './workItems'
+import { assetPath, workImages } from './workItems'
 
 const tickerItems = [
   'FUSING DESIGN AND MOTION',
@@ -253,7 +253,7 @@ function App() {
         </div>
 
         <a className="qr-card" href="tel:15361868248" aria-label="微信二维码和手机联系">
-          <img src="/assets/wechat-qr.jpg" alt="邓钰城微信二维码" />
+          <img src={assetPath('assets/wechat-qr.jpg')} alt="邓钰城微信二维码" />
         </a>
       </header>
 
@@ -281,7 +281,7 @@ function App() {
 
       <section className="intro-frame page-width">
         <div className="intro-image">
-          <img src="/assets/creative-mind-avatar.jpg" alt="邓钰城个人艺术形象" />
+          <img src={assetPath('assets/creative-mind-avatar.jpg')} alt="邓钰城个人艺术形象" />
         </div>
         <div className="intro-copy">
           <p className="eyebrow">Alex Deng / Visual Direction</p>
