@@ -501,6 +501,23 @@
   will-change: clip-path, transform, opacity;
 }
 
+.result-card::after {
+  content: '';
+  position: absolute;
+  inset: 13px;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(12, 0, 0, 0.26), transparent 72%) left bottom / min(42%, 180px) 1px no-repeat,
+    linear-gradient(rgba(12, 0, 0, 0.18), transparent 68%) right top / 1px min(32%, 92px) no-repeat,
+    radial-gradient(circle, rgba(12, 0, 0, 0.18) 1px, transparent 1.3px);
+  background-size:
+    min(42%, 180px) 1px,
+    1px min(32%, 92px),
+    18px 18px;
+  opacity: 0.42;
+}
+
 .results-grid:has(.result-card:hover) .result-card:not(:hover) {
   opacity: 0.72;
   transform: scale(0.985);
@@ -526,6 +543,7 @@
   position: absolute;
   top: -1px;
   right: -1px;
+  z-index: 1;
   width: 82px;
   height: 82px;
   border-left: 1px solid var(--ink);
@@ -536,7 +554,7 @@
 
 .milestone-card div {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   display: grid;
   gap: 8px;
   align-self: end;
@@ -564,7 +582,7 @@
 
 .result-card strong {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   font-size: clamp(58px, 6vw, 120px);
   font-weight: 1000;
   line-height: 0.8;
@@ -573,7 +591,7 @@
 
 .result-card p {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   max-width: 420px;
   margin: 0;
   font-size: 18px;
@@ -583,32 +601,57 @@
 
 .trend-lines {
   position: absolute;
-  inset: 0;
-  opacity: 0.42;
+  inset: 16px;
+  z-index: 1;
+  opacity: 0.7;
+  pointer-events: none;
 }
 
+.trend-lines::before,
+.trend-lines::after,
 .trend-lines i {
+  content: '';
   position: absolute;
-  left: -10%;
-  right: -10%;
-  height: 2px;
-  background: var(--ink);
-  transform-origin: left;
+  display: block;
+  background: rgba(12, 0, 0, 0.32);
+}
+
+.trend-lines::before {
+  top: 0;
+  right: 0;
+  width: min(34%, 140px);
+  height: 1px;
+}
+
+.trend-lines::after {
+  left: 0;
+  bottom: 0;
+  width: min(30%, 120px);
+  height: 1px;
+  opacity: 0.72;
 }
 
 .trend-lines i:nth-child(1) {
-  top: 34%;
-  transform: rotate(-6deg);
+  top: 0;
+  right: 0;
+  width: 1px;
+  height: min(30%, 88px);
 }
 
 .trend-lines i:nth-child(2) {
-  top: 56%;
-  transform: rotate(9deg);
+  right: 0;
+  bottom: 0;
+  width: min(16%, 56px);
+  height: 1px;
+  opacity: 0.46;
 }
 
 .trend-lines i:nth-child(3) {
-  top: 72%;
-  transform: rotate(-2deg);
+  right: 0;
+  bottom: 0;
+  width: 1px;
+  height: min(18%, 64px);
+  opacity: 0.46;
 }
 
 .work-section {
