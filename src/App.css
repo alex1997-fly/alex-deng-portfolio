@@ -350,6 +350,31 @@
   text-transform: uppercase;
 }
 
+.intro-eyebrow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 13px;
+}
+
+.identity-pill {
+  display: inline-flex;
+  align-items: center;
+  padding-top: 1px;
+  color: rgba(12, 0, 0, 0.68);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.11em;
+  white-space: nowrap;
+}
+
+.identity-pill::before {
+  content: '/';
+  margin-right: 13px;
+  color: var(--ink);
+  opacity: 0.72;
+}
+
 .reveal-label {
   width: max-content;
   overflow: hidden;

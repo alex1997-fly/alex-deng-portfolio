@@ -284,7 +284,10 @@ function App() {
           <img src={assetPath('assets/creative-mind-avatar.jpg')} alt="邓钰城个人艺术形象" />
         </div>
         <div className="intro-copy">
-          <p className="eyebrow">Alex Deng / Visual Direction</p>
+          <p className="eyebrow intro-eyebrow">
+            <span>Alex Deng / Visual Direction</span>
+            <span className="identity-pill">North America International Student / Cross-Cultural Lens</span>
+          </p>
           <h2>
             Clear stories,
             <br />
