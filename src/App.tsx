@@ -310,15 +310,17 @@ function App() {
         </div>
         <div className="intro-copy">
           <p className="eyebrow intro-eyebrow">
-            <span>ALEX DENG / VISUAL DIRECTION / CREATIVE GROWTH / TVC &amp; OVERSEAS ADS</span>
+            <span>ALEX DENG / VISUAL DIRECTION / NORTH AMERICA INTERNATIONAL STUDENT</span>
           </p>
           <h2>
-            I turn products
+            Turn products
             <br />
-            into visual systems that grow.
+            into visuals
+            <br />
+            that grow.
           </h2>
           <p>
-            Visual director and creative lead shaping TVCs, product films, overseas ads, social content and AI-assisted workflows for brands that need both craft and growth.
+            Visual direction for product films, overseas ads, social content and AI-assisted workflows, built for craft, clarity and measurable growth.
           </p>
         </div>
       </section>
@@ -326,13 +328,13 @@ function App() {
       <BinaryDivider index={2} />
 
       <section className="about-section page-width" id="about">
-        <div className="section-label reveal-label">Product / Film / Paid Media / AI</div>
+        <div className="section-label reveal-label">About</div>
         <div className="about-grid">
           <div className="about-sidebar">
-            <span>Product</span>
-            <span>Film</span>
-            <span>Paid Media</span>
-            <span>AI</span>
+            <span>Guangdong University of F &amp; E</span>
+            <span>Université de Montréal</span>
+            <span>North America International Student</span>
+            <span>Video / AI / Campaign</span>
           </div>
           <div className="about-copy">
             <h2>
@@ -381,8 +383,10 @@ function App() {
       <section className="results-section page-width" id="results">
         <div className="results-copy">
           <div className="section-label reveal-label">Results</div>
-          <h2>Creative impact across TVC, paid media and growth systems.</h2>
-          <p>From flagship films to million-dollar ad spend, my work connects visual craft with business outcomes.</p>
+          <div className="results-heading">
+            <h2>Creative impact across TVC, paid media and growth systems.</h2>
+            <p>From flagship films to million-dollar ad spend, my work connects visual craft with business outcomes.</p>
+          </div>
         </div>
         <div className="results-grid">
           {achievements.map((item) => (
@@ -489,31 +493,39 @@ function App() {
         </div>
       </section>
 
-      <section className={`final-section ${isFinalActive ? 'is-active' : ''}`} id="contact" ref={finalRef}>
-        <div className="gravity-grid" aria-hidden="true" />
-        <div className="final-inner page-width">
-          <div className="contact-copy">
-            <div className="section-label reveal-label">Contact</div>
+      <section className="contact-section page-width" id="contact">
+        <div className="section-label reveal-label">Contact</div>
+        <div className="contact-panel">
+          <div>
             <h2>Let’s build visual work that grows.</h2>
             <p>Available for visual direction, product films, overseas ad creative systems and AI-assisted production workflows.</p>
-            <div className="contact-links" aria-label="Contact links">
-              <a href={portfolioUrl} target="_blank" rel="noreferrer">
-                Xinpianchang Portfolio
-              </a>
-              <a href={linkedInUrl} target="_blank" rel="noreferrer">
-                LinkedIn
-              </a>
-            </div>
           </div>
+          <div className="contact-actions" aria-label="Contact links">
+            <a className="contact-primary" href={emailUrl}>Email Alex</a>
+            <a href={portfolioUrl} target="_blank" rel="noreferrer">
+              Xinpianchang Portfolio
+            </a>
+            <a href={linkedInUrl} target="_blank" rel="noreferrer">
+              LinkedIn
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section className={`final-section ${isFinalActive ? 'is-active' : ''}`} ref={finalRef}>
+        <div className="gravity-grid" aria-hidden="true" />
+        <div className="final-inner page-width">
           <div
             className={`final-cta ${isFinalActive ? 'is-active' : ''}`}
             onPointerLeave={() => setFinalActive(false)}
             onMouseLeave={() => setFinalActive(false)}
           >
             <a
-              className="go-button contact-email-button"
-              href={emailUrl}
-              aria-label="Email Alex"
+              className="go-button"
+              href={portfolioUrl}
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Open Xinpianchang portfolio"
               onPointerEnter={() => setFinalActive(true)}
               onPointerOver={() => setFinalActive(true)}
               onPointerMove={() => setFinalActive(true)}
@@ -523,9 +535,17 @@ function App() {
               onFocus={() => setFinalActive(true)}
               onBlur={() => setFinalActive(false)}
             >
-              <span className="go-idle">Email Alex</span>
-              <span className="go-lets">Email</span>
-              <span className="go-rock">Alex</span>
+              <span className="go-idle">GO</span>
+              <span className="go-lets">Let’s</span>
+              <span className="go-rock">Rock</span>
+            </a>
+            <a
+              className="circle-portfolio-link"
+              href={portfolioUrl}
+              target="_blank"
+              rel="noreferrer"
+            >
+              Xinpianchang portfolio
             </a>
           </div>
         </div>
