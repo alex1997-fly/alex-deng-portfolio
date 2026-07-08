@@ -336,8 +336,18 @@ function App() {
       <BinaryDivider index={1} />
 
       <section className="intro-frame page-width">
-        <div className="intro-image">
-          <img src={assetPath('assets/creative-mind-avatar.jpg')} alt="邓钰城个人艺术形象" />
+        <div className="intro-image" aria-label="邓钰城个人艺术形象">
+          <img
+            className="intro-image-layer intro-image-red"
+            src={assetPath('assets/creative-mind-avatar.jpg')}
+            alt="邓钰城个人艺术形象"
+          />
+          <img
+            className="intro-image-layer intro-image-mono"
+            src={assetPath('assets/alex-portrait-poster-white-bg.jpg')}
+            alt=""
+            aria-hidden="true"
+          />
         </div>
         <div className="intro-copy">
           <p className="eyebrow intro-eyebrow">
