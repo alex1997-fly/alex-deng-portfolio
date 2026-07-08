@@ -274,7 +274,7 @@ function App() {
 
         <div className="availability">
           <span>Based in Shenzhen.</span>
-          <a href={emailUrl}>Available for visual direction, product films and overseas creative systems → Email</a>
+          <a href={emailUrl}>Available for freelance work → Hire me</a>
         </div>
 
         <a className="qr-card" href="tel:15361868248" aria-label="微信二维码和手机联系">
@@ -474,45 +474,49 @@ function App() {
 
       <BinaryDivider index={6} />
 
-      <section className="since-section" id="since" aria-label="Creating my way since 2020" ref={sinceRef}>
-        <div className="since-stage">
-          <svg className="since-rays" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-            <path d={sinceRayPath} />
-          </svg>
-          <div className="since-sun" aria-hidden="true">
-            <span />
-          </div>
-          <div className="since-flow" aria-hidden="true">
-            <div className="since-perspective">
-              <span>Creating</span>
-              <span>my way</span>
-              <span>Since</span>
+      <section className="closing-section" aria-label="Creating my way since 2020 and contact">
+        <section className="since-section" id="since" aria-label="Creating my way since 2020" ref={sinceRef}>
+          <div className="since-stage">
+            <svg className="since-rays" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+              <path d={sinceRayPath} />
+            </svg>
+            <div className="since-sun" aria-hidden="true">
+              <span />
             </div>
-            <strong className="since-year">2020</strong>
+            <div className="since-flow" aria-hidden="true">
+              <div className="since-perspective">
+                <span>Creating</span>
+                <span>my way</span>
+                <span>Since</span>
+              </div>
+              <strong className="since-year">2020</strong>
+            </div>
           </div>
-        </div>
+        </section>
+
+        <BinaryDivider index={7} />
+
+        <section className="contact-section page-width" id="contact">
+          <div className="section-label reveal-label">Contact</div>
+          <div className="contact-panel">
+            <div>
+              <h2>Let’s build visual work that grows.</h2>
+              <p>Available for visual direction, product films, overseas ad creative systems and AI-assisted production workflows.</p>
+            </div>
+            <div className="contact-actions" aria-label="Contact links">
+              <a className="contact-primary" href={emailUrl}>Email Alex</a>
+              <a href={portfolioUrl} target="_blank" rel="noreferrer">
+                Xinpianchang Portfolio
+              </a>
+              <a href={linkedInUrl} target="_blank" rel="noreferrer">
+                LinkedIn
+              </a>
+            </div>
+          </div>
+        </section>
       </section>
 
-      <BinaryDivider index={7} />
-
-      <section className="contact-section page-width" id="contact">
-        <div className="section-label reveal-label">Contact</div>
-        <div className="contact-panel">
-          <div>
-            <h2>Let’s build visual work that grows.</h2>
-            <p>Available for visual direction, product films, overseas ad creative systems and AI-assisted production workflows.</p>
-          </div>
-          <div className="contact-actions" aria-label="Contact links">
-            <a className="contact-primary" href={emailUrl}>Email Alex</a>
-            <a href={portfolioUrl} target="_blank" rel="noreferrer">
-              Xinpianchang Portfolio
-            </a>
-            <a href={linkedInUrl} target="_blank" rel="noreferrer">
-              LinkedIn
-            </a>
-          </div>
-        </div>
-      </section>
+      <BinaryDivider index={8} />
 
       <section className={`final-section ${isFinalActive ? 'is-active' : ''}`} ref={finalRef}>
         <div className="gravity-grid" aria-hidden="true" />

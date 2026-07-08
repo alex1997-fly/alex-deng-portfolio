@@ -1,6 +1,7 @@
 .site-shell {
   --section-grid-x: clamp(160px, 12.5vw, 260px);
   --section-grid-y: clamp(118px, 14vh, 170px);
+  --condensed: "Arial Narrow", "Aptos Narrow", "Roboto Condensed", "Helvetica Neue", var(--mono);
   min-height: 100vh;
   overflow-x: clip;
   color: var(--ink);
@@ -72,11 +73,13 @@
 }
 
 .ticker-track span {
-  font-family: var(--mono);
+  font-family: var(--condensed);
   font-size: 10px;
-  font-weight: 600;
+  font-stretch: 72%;
+  font-weight: 520;
   line-height: 1.25;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
 }
 
 .nav-links {
@@ -88,10 +91,11 @@
   display: grid;
   place-items: center;
   color: var(--ink);
-  font-family: var(--mono);
-  font-size: clamp(11px, 0.78vw, 15px);
-  font-weight: 650;
-  letter-spacing: 0.12em;
+  font-family: var(--condensed);
+  font-size: 0.78rem;
+  font-stretch: 68%;
+  font-weight: 520;
+  letter-spacing: 0.24em;
   text-decoration: none;
   text-transform: uppercase;
   transition:
@@ -117,9 +121,10 @@
   place-items: center;
   border-bottom: 1px solid var(--ink);
   color: var(--ink);
-  font-family: var(--mono);
+  font-family: var(--condensed);
   font-size: 22px;
-  font-weight: 900;
+  font-stretch: 68%;
+  font-weight: 700;
   text-decoration: none;
   transition:
     color 420ms cubic-bezier(0.16, 1, 0.3, 1),
@@ -148,10 +153,14 @@
   align-items: center;
   padding: 0 24px;
   color: var(--ink);
-  font-size: clamp(14px, 1.05vw, 18px);
-  font-weight: 620;
-  line-height: 1.12;
+  font-family: var(--condensed);
+  font-size: 0.92rem;
+  font-stretch: 72%;
+  font-weight: 520;
+  line-height: 1.18;
+  letter-spacing: 0.08em;
   text-decoration: none;
+  text-transform: uppercase;
   white-space: normal;
 }
 
@@ -300,14 +309,6 @@
 
 .binary-marker-right {
   border-right: 7px solid var(--ink);
-}
-
-.since-section + .binary-divider {
-  background:
-    linear-gradient(90deg, rgba(22, 0, 0, 0.34) 1px, transparent 1px),
-    var(--red);
-  background-size: var(--section-grid-x) 100%, auto;
-  background-position: 0 0;
 }
 
 .intro-frame {
@@ -1216,6 +1217,40 @@
   text-transform: uppercase;
 }
 
+.closing-section {
+  position: relative;
+  z-index: 4;
+  overflow: clip;
+  isolation: isolate;
+  background: var(--red);
+  color: var(--ink);
+}
+
+.closing-section::before,
+.closing-section::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.closing-section::before {
+  z-index: 0;
+  background:
+    radial-gradient(circle at 50% 18%, rgba(22, 0, 0, 0.15), transparent 30vw),
+    radial-gradient(circle at 50% 78%, rgba(22, 0, 0, 0.08), transparent 36vw),
+    repeating-linear-gradient(180deg, rgba(22, 0, 0, 0.026) 0 1px, transparent 1px 22px);
+  opacity: 0.68;
+}
+
+.closing-section::after {
+  z-index: 1;
+  background:
+    radial-gradient(ellipse at 50% 32%, rgba(22, 0, 0, 0.09), transparent 34vw),
+    linear-gradient(180deg, transparent 0 58%, rgba(22, 0, 0, 0.035) 100%);
+  opacity: 0.56;
+}
+
 .since-section {
   --progress: 0;
   --since-copy-y: 0vh;
@@ -1227,92 +1262,63 @@
   --since-grid-opacity: 0;
   --since-sun-opacity: 1;
   --since-rays-opacity: 1;
-  min-height: 196vh;
+  min-height: 118vh;
   position: relative;
-  z-index: 4;
+  z-index: 2;
   overflow: clip;
-  background: var(--red);
+  background: transparent;
   color: var(--ink);
   border-top: 0;
 }
 
 .since-section::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  background:
-    linear-gradient(rgba(22, 0, 0, 0.16) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(22, 0, 0, 0.14) 1px, transparent 1px),
-    radial-gradient(circle at 50% 88%, rgba(22, 0, 0, 0.12), transparent 44vh),
-    linear-gradient(180deg, transparent 0 38%, rgba(22, 0, 0, 0.08) 68%, rgba(22, 0, 0, 0.13));
-  background-size: var(--section-grid-x) var(--section-grid-y), var(--section-grid-x) var(--section-grid-y), auto, auto;
-  background-position: 0 0;
-  opacity: 0.44;
-  -webkit-mask-image: linear-gradient(180deg, transparent 0 34vh, rgba(0, 0, 0, 0.35) 58vh, #000 82vh);
-  mask-image: linear-gradient(180deg, transparent 0 34vh, rgba(0, 0, 0, 0.35) 58vh, #000 82vh);
-  pointer-events: none;
+  display: none;
 }
 
 .since-stage {
   --sun-x: 50%;
-  --sun-y: 38vh;
+  --sun-y: clamp(120px, 18vh, 190px);
   min-height: 0;
-  height: 196vh;
+  height: 118vh;
   position: relative;
   top: 0;
   overflow: hidden;
-  isolation: isolate;
+  isolation: auto;
   perspective: 1280px;
   perspective-origin: 50% var(--sun-y);
-  background:
-    radial-gradient(circle at var(--sun-x) var(--sun-y), rgba(22, 0, 0, 0.18), transparent 29vh),
-    linear-gradient(180deg, rgba(22, 0, 0, 0.07), transparent 24%, transparent 76%, rgba(22, 0, 0, 0.13)),
-    var(--red);
+  background: transparent;
 }
 
 .since-stage::before {
   content: '';
   position: absolute;
   left: 50%;
-  top: 0;
-  bottom: 0;
+  top: clamp(210px, 27vh, 300px);
+  bottom: 10vh;
   z-index: 1;
   width: 1px;
-  background: linear-gradient(180deg, transparent, rgba(22, 0, 0, 0.42) 18%, rgba(22, 0, 0, 0.16) 72%, transparent);
-  opacity: calc(0.12 + var(--since-rays-opacity) * 0.32);
+  background: linear-gradient(180deg, rgba(22, 0, 0, 0.2), rgba(22, 0, 0, 0.06), transparent);
+  opacity: 0.62;
   pointer-events: none;
 }
 
 .since-stage::after {
   content: '';
   position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -1px;
-  z-index: 4;
-  height: 84vh;
-  background:
-    linear-gradient(180deg, transparent, rgba(245, 7, 61, 0.22) 38%, var(--red) 92%),
-    linear-gradient(rgba(22, 0, 0, 0.13) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(22, 0, 0, 0.1) 1px, transparent 1px);
-  background-size: auto, var(--section-grid-x) var(--section-grid-y), var(--section-grid-x) var(--section-grid-y);
-  background-position: 0 0;
-  opacity: 0.82;
+  left: 50%;
+  top: var(--sun-y);
+  z-index: 1;
+  width: clamp(300px, 42vw, 720px);
+  aspect-ratio: 1;
+  border: 1px solid rgba(22, 0, 0, 0.11);
+  border-radius: 50%;
+  opacity: 0.72;
+  transform: translate(-50%, -50%);
   pointer-events: none;
 }
 
 .since-rays {
-  position: absolute;
-  inset: 0 0 auto;
-  z-index: 2;
-  width: 100%;
-  height: 132vh;
-  opacity: calc(0.14 + var(--since-rays-opacity) * 0.38);
-  transform: scale(calc(1 + var(--progress) * 0.012));
-  transform-origin: var(--sun-x) var(--sun-y);
-  pointer-events: none;
-  will-change: transform, opacity;
+  display: none;
 }
 
 .since-rays path {
@@ -1327,17 +1333,17 @@
   left: var(--sun-x);
   top: var(--sun-y);
   z-index: 6;
-  width: clamp(58px, 4.5vw, 86px);
+  width: clamp(74px, 5.8vw, 116px);
   aspect-ratio: 1;
   display: grid;
   place-items: center;
   border: 2px solid var(--ink);
   border-radius: 50%;
-  opacity: calc(var(--since-sun-opacity) * 0.94);
-  transform: translate(-50%, -50%) scale(calc(0.98 + var(--progress) * 0.018));
+  opacity: 0.96;
+  transform: translate(-50%, -50%);
   box-shadow:
-    0 0 0 12px rgba(22, 0, 0, 0.08),
-    0 0 0 30px rgba(22, 0, 0, 0.035);
+    0 0 0 clamp(10px, 1.1vw, 16px) rgba(22, 0, 0, 0.075),
+    0 0 0 clamp(26px, 3vw, 54px) rgba(22, 0, 0, 0.03);
   background: var(--red);
   animation: sunPulse 3.6s ease-in-out infinite;
   will-change: transform, opacity;
@@ -1382,28 +1388,28 @@
 .since-flow {
   position: absolute;
   left: 50%;
-  top: 50vh;
+  top: clamp(270px, 34vh, 390px);
   z-index: 7;
-  width: min(1700px, 98vw);
+  width: min(1480px, 92vw);
   display: block;
-  perspective: 1250px;
-  perspective-origin: 50% -10vh;
+  perspective: none;
+  perspective-origin: 50% 50%;
   pointer-events: none;
-  opacity: var(--since-copy-opacity);
+  opacity: 1;
   transform: translateX(-50%);
-  will-change: opacity;
+  will-change: auto;
 }
 
 .since-perspective {
   width: 100%;
   color: var(--ink);
-  font-size: clamp(62px, 8.9vw, 150px);
+  font-size: clamp(56px, 7.4vw, 134px);
   text-align: center;
   text-transform: uppercase;
-  transform: translate3d(0, var(--since-copy-y), 0) rotateX(var(--since-rotate)) skewX(var(--since-skew)) scaleX(1.02) scaleY(var(--since-depth)) scale(var(--since-copy-scale));
+  transform: none;
   transform-origin: 50% 0;
-  transform-style: preserve-3d;
-  will-change: transform;
+  transform-style: flat;
+  will-change: auto;
 }
 
 .since-perspective span,
@@ -1411,45 +1417,47 @@
   display: block;
   margin: 0;
   font-weight: 1000;
-  line-height: 0.74;
-  letter-spacing: -0.07em;
+  line-height: 0.78;
+  letter-spacing: -0.075em;
   text-shadow:
     0 0 1px rgba(22, 0, 0, 0.2),
     0 0 0 var(--ink);
 }
 
 .since-perspective span:nth-child(1) {
+  margin-bottom: 0.08em;
   font-size: 0.34em;
-  letter-spacing: -0.055em;
+  letter-spacing: -0.045em;
 }
 
 .since-perspective span:nth-child(2) {
-  font-size: 0.64em;
+  font-size: 0.72em;
 }
 
 .since-perspective span:nth-child(3) {
-  font-size: 0.9em;
+  font-size: 0.82em;
 }
 
 .since-year {
-  margin-top: clamp(46px, 8vh, 118px);
-  font-size: clamp(148px, 25.4vw, 372px);
-  line-height: 0.72;
+  margin-top: clamp(28px, 4.6vh, 64px);
+  font-size: clamp(172px, 28vw, 460px);
+  line-height: 0.68;
   letter-spacing: -0.085em;
   text-align: center;
-  transform: scaleY(calc(0.92 + var(--since-depth) * 0.08));
+  transform: none;
   transform-origin: 50% 0;
-  will-change: transform;
+  will-change: auto;
 }
 
 .contact-section {
-  min-height: 92vh;
+  min-height: 96vh;
   display: grid;
   align-content: center;
   gap: clamp(54px, 6vw, 90px);
-  padding: clamp(106px, 9vw, 150px) 0 clamp(104px, 9vw, 148px);
+  margin-top: 0;
+  padding: clamp(96px, 9vw, 156px) 0 clamp(128px, 12vw, 210px);
   border-top: 0;
-  background: var(--red);
+  background: transparent;
   color: var(--ink);
   position: relative;
   z-index: 5;
@@ -1457,38 +1465,11 @@
 }
 
 .contact-section::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 50%;
-  width: 100vw;
-  z-index: 0;
-  pointer-events: none;
-  transform: translateX(-50%);
-  background:
-    linear-gradient(rgba(22, 0, 0, 0.18) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(22, 0, 0, 0.15) 1px, transparent 1px),
-    radial-gradient(circle at 72% 18%, rgba(22, 0, 0, 0.12), transparent 28vw),
-    var(--red);
-  background-size: var(--section-grid-x) var(--section-grid-y), var(--section-grid-x) var(--section-grid-y), auto, auto;
-  background-position: 0 0;
-  opacity: 0.86;
+  display: none;
 }
 
 .contact-section::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 50%;
-  width: 100vw;
-  z-index: 0;
-  pointer-events: none;
-  transform: translateX(-50%);
-  background:
-    linear-gradient(180deg, rgba(245, 7, 61, 0.32), transparent 22%, transparent 76%, rgba(22, 0, 0, 0.06)),
-    radial-gradient(circle at 50% 0, rgba(22, 0, 0, 0.13), transparent 42vh);
+  display: none;
 }
 
 .contact-section > * {
@@ -2206,7 +2187,7 @@
 
   .availability span,
   .availability a {
-    font-size: 17px;
+    font-size: 0.88rem;
   }
 
   .intro-frame,
