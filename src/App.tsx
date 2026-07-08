@@ -101,6 +101,18 @@ function getSpaceLayout(index: number) {
 const portfolioUrl = 'https://www.xinpianchang.com/u11438230?from=navigator'
 const linkedInUrl = 'https://www.linkedin.com/in/alex-deng-4962633b0/'
 const emailUrl = 'mailto:932555229@qq.com'
+const paletteStorageKey = 'alex-deng-palette'
+type PaletteMode = 'red' | 'mono'
+
+function getStoredPaletteMode(): PaletteMode {
+  if (typeof window === 'undefined') return 'red'
+
+  try {
+    return window.localStorage.getItem(paletteStorageKey) === 'mono' ? 'mono' : 'red'
+  } catch {
+    return 'red'
+  }
+}
 
 function BinaryDivider({ index }: { index: number }) {
   return (
@@ -120,9 +132,11 @@ function BinaryDivider({ index }: { index: number }) {
 
 function App() {
   const [isFinalActive, setFinalActive] = useState(false)
+  const [paletteMode, setPaletteMode] = useState<PaletteMode>(getStoredPaletteMode)
   const workRef = useRef<HTMLElement>(null)
   const sinceRef = useRef<HTMLElement>(null)
   const finalRef = useRef<HTMLElement>(null)
+  const isMonoPalette = paletteMode === 'mono'
 
   useEffect(() => {
     const sections = [workRef.current, sinceRef.current, finalRef.current].filter(
@@ -233,8 +247,16 @@ function App() {
     }
   }, [])
 
+  useEffect(() => {
+    try {
+      window.localStorage.setItem(paletteStorageKey, paletteMode)
+    } catch {
+      // Palette switching still works even when storage is unavailable.
+    }
+  }, [paletteMode])
+
   return (
-    <main className="site-shell">
+    <main className={`site-shell ${isMonoPalette ? 'theme-mono' : 'theme-red'}`}>
       <header className="system-nav" id="top">
         <a className="brand-glyph" href="#top" aria-label="返回首页">
           <span />
@@ -269,7 +291,16 @@ function App() {
           >
             in
           </a>
-          <span>◐</span>
+          <button
+            className="theme-toggle"
+            type="button"
+            aria-label={isMonoPalette ? 'Switch to red and black palette' : 'Switch to black and white palette'}
+            aria-pressed={isMonoPalette}
+            title={isMonoPalette ? 'Red / black' : 'Black / white'}
+            onClick={() => setPaletteMode((current) => (current === 'mono' ? 'red' : 'mono'))}
+          >
+            <span className="theme-toggle-icon" aria-hidden="true" />
+          </button>
         </div>
 
         <div className="availability">
