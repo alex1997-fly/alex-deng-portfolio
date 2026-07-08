@@ -10,8 +10,8 @@ const tickerItems = [
   'SCALING CREATIVE SYSTEMS',
 ]
 
-const creativeLetters = 'VISUAL'.split('')
-const directorLetters = 'GROWTH'.split('')
+const creativeLetters = 'CREATIVE'.split('')
+const directorLetters = 'DIRECTOR'.split('')
 const workMantra = ['W', 'O', 'R', 'K']
 
 const dividerSequences = [
@@ -492,6 +492,8 @@ function App() {
           </div>
         </div>
       </section>
+
+      <BinaryDivider index={7} />
 
       <section className="contact-section page-width" id="contact">
         <div className="section-label reveal-label">Contact</div>
