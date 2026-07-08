@@ -4,14 +4,14 @@ import type { CSSProperties } from 'react'
 import { assetPath, workImages } from './workItems'
 
 const tickerItems = [
-  'FUSING DESIGN AND MOTION',
-  'OPTIMIZING CREATIVE SYSTEMS',
-  'RUNNING VISUAL STRATEGY',
-  'BUILDING WORK THAT TRAVELS',
+  'UNDERSTANDING PRODUCTS',
+  'BUILDING VISUAL HOOKS',
+  'DIRECTING FILMS THAT SELL',
+  'SCALING CREATIVE SYSTEMS',
 ]
 
-const creativeLetters = 'CREATIVE'.split('')
-const directorLetters = 'DIRECTOR'.split('')
+const creativeLetters = 'VISUAL'.split('')
+const directorLetters = 'GROWTH'.split('')
 const workMantra = ['W', 'O', 'R', 'K']
 
 const dividerSequences = [
@@ -34,20 +34,42 @@ const sinceRayPath = [
 ].join(' ')
 
 const achievements = [
-  { value: '100+', label: 'Projects across brand films, ads and campaigns', tone: 'tall' },
-  { value: '5.65M', label: 'Recent overseas ad impressions shaped by visual iteration', tone: 'wide' },
-  { value: '244', label: 'Modular ad assets organized for Ulike global channels', tone: 'small' },
-  { value: '$2M+', label: 'Monthly independent-site GMV supported by creative delivery', tone: 'medium' },
-  { value: '1.8M', label: 'YouTube views from a low-budget viral film', tone: 'small' },
-  { value: '84%', label: 'Brand search lift after viral campaign execution', tone: 'wide' },
-  { value: 'AI', label: 'Filmmaking workflows explored across ideation, previsualization and production', tone: 'medium' },
+  { value: '$1M+/mo', label: 'Paid media spend supported by creative testing and visual iteration', tone: 'wide' },
+  { value: '7-person team', label: 'Overseas creative team managed across video, design, editing and data review', tone: 'medium' },
+  { value: '258 assets', label: 'Self-made content assets produced and optimized for overseas channels', tone: 'small' },
+  { value: '7.75M+', label: 'Self-made content impressions driven by creative optimization', tone: 'small' },
+  { value: '9 million-level ads', label: 'Ad assets exceeded 1M impressions, with one reaching 2.7M in two months', tone: 'wide' },
+  { value: '¥1M+ TVC projects', label: 'Flagship product films led from concept, storyboard and shoot to final delivery', tone: 'wide' },
+  { value: '100+ projects', label: 'Brand films, product launches, TVCs, overseas ads and social campaigns', tone: 'medium' },
+  { value: '1.8M views / 84% search lift', label: 'Low-budget viral film that drove YouTube views and brand search growth', tone: 'wide' },
 ]
 
-const milestoneNotes = [
-  'Still creating',
-  'the next milestones.',
-  'New projects, new systems,',
-  'new visual stories.',
+const methodSteps = [
+  {
+    title: 'Product Truth',
+    text: 'Understand the product, user pain point, market context and business goal before writing the idea.',
+  },
+  {
+    title: 'Visual Hook',
+    text: 'Turn the strongest product value into an opening hook, usage scene, contrast or exaggerated pain point.',
+  },
+  {
+    title: 'Directed Craft',
+    text: 'Control script, storyboard, performance, shooting, editing, color and final visual quality.',
+  },
+  {
+    title: 'Platform Fit',
+    text: 'Adapt the idea for TikTok, Meta, Amazon, YouTube, social content and independent-site scenarios.',
+  },
+  {
+    title: 'Data Iteration',
+    text: 'Review exposure, CTR, clicks, conversions and ROI, then scale the creative directions that work.',
+  },
+]
+
+const resultsClosingLines = [
+  'Visual work should not only look good.',
+  'It should move products, teams and business forward.',
 ]
 
 const workStartY = 220
@@ -77,6 +99,8 @@ function getSpaceLayout(index: number) {
 }
 
 const portfolioUrl = 'https://www.xinpianchang.com/u11438230?from=navigator'
+const linkedInUrl = 'https://www.linkedin.com/in/alex-deng-4962633b0/'
+const emailUrl = 'mailto:932555229@qq.com'
 
 function BinaryDivider({ index }: { index: number }) {
   return (
@@ -229,6 +253,7 @@ function App() {
 
         <nav className="nav-links" aria-label="主导航">
           <a href="#about">About</a>
+          <a href="#method">Method</a>
           <a href="#results">Results</a>
           <a href="#work">Work</a>
           <a href="#contact">Contact</a>
@@ -237,7 +262,7 @@ function App() {
         <div className="nav-icons">
           <a
             className="linkedin-link"
-            href="https://www.linkedin.com/in/alex-deng-4962633b0/"
+            href={linkedInUrl}
             target="_blank"
             rel="noreferrer"
             aria-label="Open LinkedIn profile"
@@ -249,7 +274,7 @@ function App() {
 
         <div className="availability">
           <span>Based in Shenzhen.</span>
-          <a href="mailto:932555229@qq.com">Available for visual direction → Email</a>
+          <a href={emailUrl}>Available for visual direction, product films and overseas creative systems → Email</a>
         </div>
 
         <a className="qr-card" href="tel:15361868248" aria-label="微信二维码和手机联系">
@@ -285,16 +310,15 @@ function App() {
         </div>
         <div className="intro-copy">
           <p className="eyebrow intro-eyebrow">
-            <span>Alex Deng / Visual Direction</span>
-            <span className="identity-pill">North America International Student / Cross-Cultural Lens</span>
+            <span>ALEX DENG / VISUAL DIRECTION / CREATIVE GROWTH / TVC &amp; OVERSEAS ADS</span>
           </p>
           <h2>
-            Clear stories,
+            I turn products
             <br />
-            built for every screen.
+            into visual systems that grow.
           </h2>
           <p>
-            Visual director and creative manager shaping product films, overseas ads, social content and AI-assisted visual systems.
+            Visual director and creative lead shaping TVCs, product films, overseas ads, social content and AI-assisted workflows for brands that need both craft and growth.
           </p>
         </div>
       </section>
@@ -302,42 +326,29 @@ function App() {
       <BinaryDivider index={2} />
 
       <section className="about-section page-width" id="about">
-        <div className="section-label reveal-label">About</div>
+        <div className="section-label reveal-label">Product / Film / Paid Media / AI</div>
         <div className="about-grid">
           <div className="about-sidebar">
-            <span>Guangdong University of F & E</span>
-            <span>Université de Montréal</span>
-            <span>Video / AI / Campaign</span>
+            <span>Product</span>
+            <span>Film</span>
+            <span>Paid Media</span>
+            <span>AI</span>
           </div>
           <div className="about-copy">
             <h2>
-              I turn products
+              I build the bridge between product truth
               <br />
-              into visual stories.
+              and business growth.
             </h2>
-            <p className="about-lede">
-              Films, ads and AI-assisted visuals
-              <br />
-              for brands built to grow.
-            </p>
             <div className="about-body">
               <p>
-                I started with directing, shooting and editing,
-                <br />
-                then moved through brand films, product launches,
-                <br />
-                social campaigns and overseas marketing.
+                I start by understanding the product clearly: what it solves, who it speaks to, why people should care, and how it should appear across different platforms.
               </p>
               <p>
-                I’ve built <strong>content systems</strong> from scratch,
-                <br />
-                led video teams, shaped visual identities,
-                <br />
-                worked across <strong>100+ projects</strong>,
-                <br />
-                and I’m still chasing better ways
-                <br />
-                to make ideas move.
+                My strength sits between creative direction and business execution. I can develop the idea, direct the shoot, control the visual quality, manage the team, and keep improving the work through platform data.
+              </p>
+              <p>
+                From TVCs and product films to overseas paid ads and social content systems, I turn product value into visual hooks, scenes and campaigns that help brands grow.
               </p>
             </div>
           </div>
@@ -346,8 +357,33 @@ function App() {
 
       <BinaryDivider index={3} />
 
+      <section className="method-section page-width" id="method">
+        <div className="method-header">
+          <div className="section-label reveal-label">Method</div>
+          <div>
+            <h2>My creative method</h2>
+            <p>Product understanding first. Visual hook second. Platform testing always.</p>
+          </div>
+        </div>
+        <div className="method-grid">
+          {methodSteps.map((step, index) => (
+            <article className="method-card" key={step.title}>
+              <span>{String(index + 1).padStart(2, '0')}</span>
+              <h3>{step.title}</h3>
+              <p>{step.text}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <BinaryDivider index={4} />
+
       <section className="results-section page-width" id="results">
-        <div className="section-label reveal-label">Results</div>
+        <div className="results-copy">
+          <div className="section-label reveal-label">Results</div>
+          <h2>Creative impact across TVC, paid media and growth systems.</h2>
+          <p>From flagship films to million-dollar ad spend, my work connects visual craft with business outcomes.</p>
+        </div>
         <div className="results-grid">
           {achievements.map((item) => (
             <article className={`result-card ${item.tone}`} key={`${item.value}-${item.label}`}>
@@ -360,17 +396,15 @@ function App() {
               <p>{item.label}</p>
             </article>
           ))}
-          <article className="result-card milestone-card">
-            <div>
-              {milestoneNotes.map((line) => (
-                <span key={line}>{line}</span>
-              ))}
-            </div>
-          </article>
+        </div>
+        <div className="results-closing" aria-label="Results closing statement">
+          {resultsClosingLines.map((line) => (
+            <span key={line}>{line}</span>
+          ))}
         </div>
       </section>
 
-      <BinaryDivider index={4} />
+      <BinaryDivider index={5} />
 
       <section
         className="work-section"
@@ -434,7 +468,7 @@ function App() {
         </div>
       </section>
 
-      <BinaryDivider index={5} />
+      <BinaryDivider index={6} />
 
       <section className="since-section" id="since" aria-label="Creating my way since 2020" ref={sinceRef}>
         <div className="since-stage">
@@ -458,17 +492,28 @@ function App() {
       <section className={`final-section ${isFinalActive ? 'is-active' : ''}`} id="contact" ref={finalRef}>
         <div className="gravity-grid" aria-hidden="true" />
         <div className="final-inner page-width">
+          <div className="contact-copy">
+            <div className="section-label reveal-label">Contact</div>
+            <h2>Let’s build visual work that grows.</h2>
+            <p>Available for visual direction, product films, overseas ad creative systems and AI-assisted production workflows.</p>
+            <div className="contact-links" aria-label="Contact links">
+              <a href={portfolioUrl} target="_blank" rel="noreferrer">
+                Xinpianchang Portfolio
+              </a>
+              <a href={linkedInUrl} target="_blank" rel="noreferrer">
+                LinkedIn
+              </a>
+            </div>
+          </div>
           <div
             className={`final-cta ${isFinalActive ? 'is-active' : ''}`}
             onPointerLeave={() => setFinalActive(false)}
             onMouseLeave={() => setFinalActive(false)}
           >
             <a
-              className="go-button"
-              href={portfolioUrl}
-              target="_blank"
-              rel="noreferrer"
-              aria-label="Open Xinpianchang portfolio"
+              className="go-button contact-email-button"
+              href={emailUrl}
+              aria-label="Email Alex"
               onPointerEnter={() => setFinalActive(true)}
               onPointerOver={() => setFinalActive(true)}
               onPointerMove={() => setFinalActive(true)}
@@ -478,17 +523,9 @@ function App() {
               onFocus={() => setFinalActive(true)}
               onBlur={() => setFinalActive(false)}
             >
-              <span className="go-idle">GO</span>
-              <span className="go-lets">Let’s</span>
-              <span className="go-rock">Rock</span>
-            </a>
-            <a
-              className="circle-portfolio-link"
-              href={portfolioUrl}
-              target="_blank"
-              rel="noreferrer"
-            >
-              Xinpianchang portfolio
+              <span className="go-idle">Email Alex</span>
+              <span className="go-lets">Email</span>
+              <span className="go-rock">Alex</span>
             </a>
           </div>
         </div>
